@@ -14,7 +14,7 @@ server.listen(port, () => {
     console.log(`Server running on ${port}`);
 });
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 let socketConnected = new Set()
 
