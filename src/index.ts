@@ -1,7 +1,5 @@
 import express, { Request, Response } from 'express';
 import { createServer } from 'node:http';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
 import {Server, Socket} from 'socket.io';
 import path from "node:path";
 require('dotenv').config();
@@ -13,7 +11,7 @@ const server = createServer(app);
 const io = new Server(server);
 
 server.listen(port, () => {
-    console.log('Server running on ${port}');
+    console.log(`Server running on ${port}`);
 });
 
 app.use(express.static(path.join(__dirname, 'public')))
