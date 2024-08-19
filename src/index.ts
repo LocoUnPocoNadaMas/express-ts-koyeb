@@ -16,6 +16,10 @@ server.listen(port, () => {
 
 app.use('/', express.static(path.join(__dirname, 'public')))
 
+app.get('/uwu', (req: Request, res: Response) => {
+    res.send("ewe")
+})
+
 let socketConnected = new Set()
 
 io.on('connection', onConnected)
