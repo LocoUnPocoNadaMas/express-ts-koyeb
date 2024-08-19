@@ -1,12 +1,12 @@
 import express, { Request, Response } from 'express';
-require("dotenv").config({ path: "./.env" });
+require('dotenv').config();
 
 const app = express()
 const port = process.env.PORT || 3000
 
 app.get('/', (req: Request, res: Response) => {
     res.json({
-        message: 'Hello, world!',
+        message: 'Hello, world again!',
     })
 })
 
