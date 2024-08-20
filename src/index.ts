@@ -1,20 +1,22 @@
 import express, { Request, Response } from 'express';
 import { createServer } from 'node:http';
 import {Server, Socket} from 'socket.io';
-import path from "node:path";
+import path from 'node:path';
 require('dotenv').config();
 
 const port = process.env.PORT || 4000
+const host = process.env.HOST
 
 const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
 server.listen(port, () => {
-    console.log(`Server running on ${port}`);
+    console.log(`Server running at http://${host}:${port}`);
 });
 
 app.use('/', express.static(path.join(__dirname, 'public')))
+//app.use('/', express.static('public'))
 
 app.get('/uwu', (req: Request, res: Response) => {
     res.send("ewe")
